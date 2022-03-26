@@ -41,10 +41,6 @@ class MainRepository private constructor(@NonNull context: Context): LoginReposi
         this.destination.postValue(0)
     }
 
-    fun setQuery(@NonNull query: String) {
-        
-    }
-
     fun logout() {
         logoutFirebase()
         setDestination(R.id.navigationLogin)
