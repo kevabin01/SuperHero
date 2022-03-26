@@ -1,7 +1,6 @@
 package com.codequark.superhero.models
 
 import androidx.annotation.NonNull
-import com.codequark.superhero.retrofit.models.Result
 import com.google.gson.annotations.SerializedName
 
 data class SuperHero(
@@ -36,4 +35,4 @@ data class SuperHero(
     @NonNull
     @SerializedName("image")
     val image: Image
-): Result()
+)
