@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">SuperHero</string>
+	<string name="api_key_super_hero">5070286553030145</string>
 </resources>
