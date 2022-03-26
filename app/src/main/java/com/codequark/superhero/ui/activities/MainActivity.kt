@@ -57,7 +57,13 @@ class MainActivity: AppCompatActivity() {
             manageDestination(destination)
         }
 
+        binding.layoutToolbar.appBarLayout.outlineProvider = null
         NavigationUI.setupActionBarWithNavController(this, navController, viewModel.navConfiguration)
+        NavigationUI.setupWithNavController(binding.bottomNavigationView, navController)
+
+        binding.bottomNavigationView.setOnItemReselectedListener {
+
+        }
 
         viewModel.getDestination().observe(this) { destination ->
             if(destination == 0) {
@@ -81,6 +87,11 @@ class MainActivity: AppCompatActivity() {
 
                 }
             }
+        }
+
+        binding.fab.setOnClickListener {
+            val searchView: View = findViewById(R.id.actionSearch)
+            searchView.performClick()
         }
     }
 
@@ -120,11 +131,11 @@ class MainActivity: AppCompatActivity() {
             }
 
             R.id.navigationHome -> {
-                enableMenu(menu)
+                disableMenu(menu)
             }
 
             R.id.navigationSearch -> {
-                disableMenu(menu)
+                enableMenu(menu)
             }
 
             else -> {
@@ -172,7 +183,7 @@ class MainActivity: AppCompatActivity() {
     private fun manageDestination(@NonNull destination: NavDestination) {
         invalidateOptionsMenu()
 
-        if(destination.id == R.id.navigationLogin || destination.id == R.id.navigationRegister) {
+        if(destination.id == R.id.navigationLogin || destination.id == R.id.navigationRegister || destination.id == R.id.navigationHome) {
             binding.fab.visibility = View.GONE
         } else {
             binding.fab.visibility = View.VISIBLE

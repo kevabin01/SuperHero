@@ -18,10 +18,6 @@ class ViewModelFactory: ViewModelProvider.Factory {
                 NetworkViewModel(application) as T
             }
 
-            modelClass.isAssignableFrom(SearchViewModel::class.java) -> {
-                SearchViewModel(application) as T
-            }
-
             else -> throw IllegalArgumentException("Unknown ViewModel class")
         }
     }

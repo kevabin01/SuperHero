@@ -42,7 +42,7 @@ class MainRepository private constructor(@NonNull context: Context): LoginReposi
     }
 
     fun setQuery(@NonNull query: String) {
-
+        
     }
 
     fun logout() {
