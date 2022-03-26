@@ -82,7 +82,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun registrarse(@NonNull view: View) {
-        setDestination(R.id.navigationRegistro)
+        setDestination(R.id.navigationRegister)
     }
 
     fun registrar(@NonNull view: View) {
