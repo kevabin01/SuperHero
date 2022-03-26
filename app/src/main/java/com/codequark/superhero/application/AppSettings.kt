@@ -1,7 +1,9 @@
 package com.codequark.superhero.application
 
 import androidx.annotation.NonNull
+import androidx.annotation.Nullable
 import com.codequark.superhero.R
+import com.codequark.superhero.managers.PreferenceManager
 import com.codequark.superhero.managers.ResourceManager
 import com.codequark.superhero.models.login.Login
 import com.google.gson.Gson
@@ -14,21 +16,26 @@ class AppSettings {
         }
 
         fun logout() {
-            ResourceManager.getInstance().cleanKey(R.string.key_login)
+            PreferenceManager.getInstance().cleanKey(R.string.key_login)
         }
 
         private fun setLogin(@NonNull login: Login) {
             val gson = Gson()
             val json = gson.toJson(login)
-            ResourceManager.getInstance()[R.string.key_login] = json
+            PreferenceManager.getInstance().set(R.string.key_login, json)
         }
 
+        @Nullable
         fun getLogin(): Login? {
-            val gson = Gson()
-            val type = object: TypeToken<Login>(){}.type
-            val json = ResourceManager.getInstance().getString(R.string.key_login)
+            return try {
+                val gson = Gson()
+                val type = object: TypeToken<Login>(){}.type
+                val json = ResourceManager.getInstance().getString(R.string.key_login)
 
-            return gson.fromJson(json, type)
+                gson.fromJson(json, type)
+            } catch (ex: Exception) {
+                null
+            }
         }
     }
 }

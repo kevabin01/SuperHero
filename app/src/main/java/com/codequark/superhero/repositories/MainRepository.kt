@@ -81,14 +81,14 @@ class MainRepository private constructor(@NonNull context: Context) {
     fun login(login: Login) {
         setUpdating(true)
 
-        val task = firebaseAuth.signInWithEmailAndPassword(login.getEmail(), login.password)
+        val task = firebaseAuth.signInWithEmailAndPassword(login.email, login.password)
 
         task.addOnSuccessListener(OnSuccessListener { authResult ->
             if(authResult.user == null) {
                 return@OnSuccessListener
             }
             val firebaseId = authResult.user!!.uid
-            AppSettings.login(Login(firebaseId, login.user, login.password))
+            AppSettings.login(Login(firebaseId, login.email, login.password))
             setLoginState(LoginStateDef.STATE_LOGIN_SUCCESS)
         })
         task.addOnFailureListener { ex ->
@@ -127,12 +127,12 @@ class MainRepository private constructor(@NonNull context: Context) {
 
     fun registrar(login: Login) {
         setUpdating(true)
-        val task = firebaseAuth.createUserWithEmailAndPassword(login.getEmail(), login.password)
+        val task = firebaseAuth.createUserWithEmailAndPassword(login.email, login.password)
         task.addOnSuccessListener {
             val firebaseUser = firebaseAuth.currentUser
 
             if(firebaseUser != null) {
-                AppSettings.login(Login(firebaseUser.uid, login.user, login.password))
+                AppSettings.login(Login(firebaseUser.uid, login.email, login.password))
                 setLoginState(LoginStateDef.STATE_LOGIN_SUCCESS)
             } else {
                 setLoginState(LoginStateDef.STATE_LOGIN_ERROR)

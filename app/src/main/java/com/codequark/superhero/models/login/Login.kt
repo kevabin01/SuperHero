@@ -7,7 +7,7 @@ data class Login(
     val firebaseId: String,
 
     @NonNull
-    val user: String,
+    val email: String,
 
     @NonNull
     val password: String
@@ -16,14 +16,9 @@ data class Login(
 
     constructor(
         @NonNull
-        user: String,
+        email: String,
 
         @NonNull
         password: String
-    ): this("", user, password)
-
-    @NonNull
-    fun getEmail(): String {
-        return "$user@test.com"
-    }
+    ): this("", email, password)
 }
