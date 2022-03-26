@@ -61,9 +61,11 @@ class MainActivity: AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, viewModel.navConfiguration)
 
         viewModel.getDestination().observe(this) { destination ->
-            if(destination != 0) {
-                navController.navigate(destination)
+            if(destination == 0) {
+                return@observe
             }
+
+            navController.navigate(destination)
         }
 
         networkViewModel.network.observe(this) { integer ->
