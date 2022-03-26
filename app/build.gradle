@@ -81,13 +81,13 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 
     // Lifecycle Components
-    api "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionVersion"
-    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
 
     // Room components
-    api "androidx.room:room-runtime:$roomVersion"
-    api "androidx.room:room-paging:$roomVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-paging:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
     androidTestImplementation "androidx.room:room-testing:$roomVersion"
 
@@ -98,13 +98,23 @@ dependencies {
     implementation "com.google.firebase:firebase-database:$firebaseDatabaseVersion"
     implementation "com.google.firebase:firebase-auth:$firebaseAuthVersion"
 
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    // OkHttp
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    implementation "com.squareup.okhttp3:okhttp-dnsoverhttps:$okHttpVersion"
+
     // Paging
-    api "androidx.paging:paging-runtime-ktx:$pagingVersion"
+    implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
 
     // MultiDex
-    api "androidx.multidex:multidex:$multiDexVersion"
+    implementation "androidx.multidex:multidex:$multiDexVersion"
 
     // Kotlin
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:$coroutinesVersion"
 }
