@@ -72,8 +72,8 @@ class RegisterFragment : Fragment() {
                 }
 
                 LoginStateDef.STATE_LOGIN_ERROR_USUARIO_EMPTY -> {
-                    binding.edtUsuario.error = text(R.string.textUsuarioVacio)
-                    binding.edtUsuario.requestFocus()
+                    binding.edtEmail.error = text(R.string.textUsuarioVacio)
+                    binding.edtEmail.requestFocus()
                 }
 
                 LoginStateDef.STATE_LOGIN_ERROR_PASSWORD_EMPTY -> {

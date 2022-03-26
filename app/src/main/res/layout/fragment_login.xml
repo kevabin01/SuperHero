@@ -50,17 +50,16 @@
                 style="@style/Style.TextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtUsuario"
+                    android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.usuario}"
+                    android:text="@={viewModel.email}"
                     android:textSize="@dimen/textSizeNormal"
                     android:textColor="@color/textColor"
                     android:textColorHint="@color/textColor"
-                    android:hint="@string/titleUsuario"
+                    android:hint="@string/titleEmail"
                     android:inputType="text"
                     android:importantForAutofill="no"
-                    android:digits="abcdefghijklmnopqrstuvwxyz"
                     style="@style/Style.TextInputEditText" />
 
             </com.google.android.material.textfield.TextInputLayout>

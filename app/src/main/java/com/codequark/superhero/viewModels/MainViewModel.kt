@@ -25,7 +25,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     @NonNull
     private val destination: LiveData<Int> = repository.getDestination()
 
-    var usuario = ""
+    var email = ""
     var password = ""
 
     @NonNull
@@ -58,7 +58,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun login(@NonNull view: View) {
-        if(usuario.isEmpty()) {
+        email = email.trim()
+
+        if(email.isEmpty()) {
             setLoginState(LoginStateDef.STATE_LOGIN_ERROR_USUARIO_EMPTY)
             return
         }
@@ -73,7 +75,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             return
         }
 
-        val login = Login(usuario, password)
+        val login = Login(email, password)
         repository.login(login)
     }
 
@@ -86,7 +88,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun registrar(@NonNull view: View) {
-        if(usuario.isEmpty()) {
+        email = email.trim()
+
+        if(email.isEmpty()) {
             setLoginState(LoginStateDef.STATE_LOGIN_ERROR_USUARIO_EMPTY)
             return
         }
@@ -101,7 +105,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             return
         }
 
-        val login = Login(usuario, password)
+        val login = Login(email, password)
         repository.registrar(login)
     }
 }
