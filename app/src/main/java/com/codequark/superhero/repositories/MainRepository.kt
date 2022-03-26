@@ -66,18 +66,22 @@ class MainRepository private constructor(@NonNull context: Context) {
         return destination
     }
 
-    fun setLoginState(@LoginStateDef state: Int) {
-        loginState.value = state
-        loginState.postValue(LoginStateDef.STATE_DEFAULT)
-    }
-
     fun setUpdating(@NonNull updating: Boolean) {
         this.updating.value = updating
+    }
+
+    fun setLoginState(@LoginStateDef state: Int) {
+        this.loginState.value = state
+        this.loginState.postValue(LoginStateDef.STATE_DEFAULT)
     }
 
     fun setDestination(@IdRes destination: Int) {
         this.destination.value = destination
         this.destination.postValue(0)
+    }
+
+    fun setQuery(@NonNull query: String) {
+
     }
 
     fun login(login: Login) {

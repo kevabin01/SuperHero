@@ -1,16 +1,22 @@
 package com.codequark.superhero.ui.activities
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
+import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.codequark.superhero.R
 import com.codequark.superhero.databinding.ActivityMainBinding
 import com.codequark.superhero.managers.NetworkManager.NetworkStateDef
 import com.codequark.superhero.retrofit.requests.SearchRequest
 import com.codequark.superhero.utils.Constants
 import com.codequark.superhero.utils.LogUtils
+import com.codequark.superhero.viewModels.MainViewModel
 import com.codequark.superhero.viewModels.NetworkViewModel
 import com.codequark.superhero.viewModels.ViewModelFactory
 import kotlinx.coroutines.Dispatchers
@@ -19,6 +25,12 @@ import kotlinx.coroutines.launch
 
 class MainActivity: AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
+    private lateinit var navController: NavController
+
+    private val viewModel by viewModels<MainViewModel> {
+        ViewModelFactory()
+    }
 
     private val networkViewModel by viewModels<NetworkViewModel> {
         ViewModelFactory()
@@ -40,6 +52,19 @@ class MainActivity: AppCompatActivity() {
         }
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment? ?: throw RuntimeException("NavHostFragment is null")
+
+        navController = navHostFragment.navController
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            manageDestination(destination)
+        }
+
+        NavigationUI.setupActionBarWithNavController(this, navController, viewModel.navConfiguration)
+
+        viewModel.getDestination().observe(this) { destination ->
+            if(destination != 0) {
+                navController.navigate(destination)
+            }
+        }
 
         networkViewModel.network.observe(this) { integer ->
             when (integer) {
@@ -65,7 +90,17 @@ class MainActivity: AppCompatActivity() {
             params[Constants.JsonConstants.query] = query
 
             val request = SearchRequest()
-            request.execute(params)
+            //request.execute(params)
         }
+    }
+
+    private fun manageDestination(@NonNull destination: NavDestination) {
+        if(destination.id == R.id.navigationLogin || destination.id == R.id.navigationRegister) {
+            binding.fab.visibility = View.GONE
+        } else {
+            binding.fab.visibility = View.VISIBLE
+        }
+
+        viewModel.setQuery("")
     }
 }

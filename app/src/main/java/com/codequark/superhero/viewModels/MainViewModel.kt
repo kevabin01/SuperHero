@@ -17,10 +17,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: MainRepository = MainRepository.getInstance(application.applicationContext)
 
     @NonNull
-    private val loginState: LiveData<Int> = repository.getLoginState()
+    private val updating: LiveData<Boolean> = repository.getUpdating()
 
     @NonNull
-    private val updating: LiveData<Boolean> = repository.getUpdating()
+    private val loginState: LiveData<Int> = repository.getLoginState()
 
     @NonNull
     private val destination: LiveData<Int> = repository.getDestination()
@@ -29,13 +29,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     var password = ""
 
     @NonNull
-    fun getLoginState(): LiveData<Int> {
-        return loginState
+    fun getUpdating(): LiveData<Boolean> {
+        return updating
     }
 
     @NonNull
-    fun getUpdating(): LiveData<Boolean> {
-        return updating
+    fun getLoginState(): LiveData<Int> {
+        return loginState
     }
 
     @NonNull
@@ -45,16 +45,20 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     val navConfiguration: AppBarConfiguration = repository.navConfiguration
 
-    fun setLoginState(@LoginStateDef state: Int) {
-        repository.setLoginState(state)
-    }
-
     fun setUpdating(updating: Boolean) {
         repository.setUpdating(updating)
     }
 
+    fun setLoginState(@LoginStateDef state: Int) {
+        repository.setLoginState(state)
+    }
+
     fun setDestination(@IdRes destination: Int) {
         repository.setDestination(destination)
+    }
+
+    fun setQuery(@NonNull query: String) {
+        this.repository.setQuery(query)
     }
 
     fun login(@NonNull view: View) {
