@@ -3,7 +3,9 @@
 	<string name="titleAppName">SuperHero</string>
 
 	<string name="titleLogin">Iniciar sesión</string>
-	<string name="titleRegistro">Registro</string>
+	<string name="titleRegister">Registro</string>
+	<string name="titleHome">Registro</string>
+	<string name="titleSearch">Buscar</string>
 	<string name="titleUsuario">Usuario</string>
 	<string name="titlePassword">Contraseña</string>
 	<string name="titleRegistrar">Registrar</string>
@@ -21,6 +23,9 @@
 	<string name="textUsuarioExiste">Este usuario ya existe, intente con otro</string>
 	<string name="textUsuarioNoExiste">No se encuentra ninguna cuenta registrada</string>
 	<string name="textErrorLoginDemasiadosIntentos">Se han realizado demasiados intentos, intente de nuevo en 15 minutos</string>
+	<string name="textEnterSearch">Ingrese su búsqueda</string>
+	<string name="textNoResults">Sin resultados</string>
+	<string name="textTryNewSearch">Intenta una nueva búsqueda</string>
 
 	<!-- SharedPreferences -->
 	<string name="key_login">key_login</string>

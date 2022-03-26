@@ -5,15 +5,19 @@
 	<color name="colorAccent">#1498d5</color>
 
 	<color name="backgroundPrimary">@color/colorWhite</color>
+	<color name="backgroundSecondary">@color/colorWhite</color>
 	<color name="backgroundMenu">#666666</color>
 	<color name="backgroundIcons">@color/colorWhite</color>
 	<color name="backgroundButtonDialog">@color/colorGray</color>
+	<color name="backgroundLayoutIcon">@color/colorPrimary</color>
+	<color name="backgroundCardView">@color/colorWhite</color>
+	<color name="backgroundRecyclerView">@color/backgroundPrimary</color>
 
 	<color name="textColor">@color/colorDark</color>
+
+	<color name="hintColor">@color/colorWhite</color>
 
 	<color name="colorWhite">#f0f0f0</color>
 	<color name="colorDark">#454749</color>
 	<color name="colorGray">#686868</color>
-
-	<color name="hintColor">@color/colorWhite</color>
 </resources>

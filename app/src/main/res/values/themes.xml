@@ -59,4 +59,30 @@
 		<item name="android:selectable">true</item>
 		<item name="android:focusable">true</item>
 	</style>
+
+	<style name="Style.RecyclerView" parent="@style/AppTheme">
+		<item name="android:background">@color/backgroundRecyclerView</item>
+	</style>
+
+	<style name="Style.FloatingActionButton.Search" parent="Style.FloatingActionButton">
+		<item name="icon">@drawable/ic_search</item>
+		<item name="android:text">@string/titleSearch</item>
+	</style>
+
+	<style name="Style.FloatingActionButton" parent="@style/AppTheme">
+		<item name="rippleColor">@color/colorWhite</item>
+		<item name="iconTint">@color/backgroundIcons</item>
+		<item name="backgroundTint">@color/colorPrimary</item>
+		<item name="android:textSize">14sp</item>
+		<item name="android:textColor">@color/colorWhite</item>
+		<item name="android:textAllCaps">false</item>
+		<item name="background">@drawable/bg_button_negative</item>
+		<item name="android:clickable">true</item>
+		<item name="android:selectable">true</item>
+		<item name="android:focusable">true</item>
+		<item name="android:layout_marginEnd">15dp</item>
+		<item name="android:layout_marginBottom">25dp</item>
+		<item name="android:layout_alignParentBottom">true</item>
+		<item name="android:layout_alignParentEnd">true</item>
+	</style>
 </resources>

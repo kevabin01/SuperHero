@@ -10,8 +10,16 @@ class ViewModelFactory: ViewModelProvider.Factory {
         val application = ResourceManager.getInstance().application
 
         return when {
+            modelClass.isAssignableFrom(MainViewModel::class.java) -> {
+                MainViewModel(application) as T
+            }
+
             modelClass.isAssignableFrom(NetworkViewModel::class.java) -> {
                 NetworkViewModel(application) as T
+            }
+
+            modelClass.isAssignableFrom(SearchViewModel::class.java) -> {
+                SearchViewModel(application) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class")

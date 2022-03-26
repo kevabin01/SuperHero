@@ -11,15 +11,27 @@
 		tools:layout="@layout/fragment_login" >
 
 		<action
-			android:id="@+id/action_navigationLogin_to_navigationRegistro"
-			app:destination="@id/navigationRegistro" />
+			android:id="@+id/action_navigationLogin_to_navigationRegister"
+			app:destination="@id/navigationRegister" />
 
 	</fragment>
 
 	<fragment
-		android:id="@+id/navigationRegistro"
-		android:name="com.codequark.superhero.ui.fragments.RegistroFragment"
-		android:label="@string/titleRegistro"
-		tools:layout="@layout/fragment_registro" />
+		android:id="@+id/navigationRegister"
+		android:name="com.codequark.superhero.ui.fragments.RegisterFragment"
+		android:label="@string/titleRegister"
+		tools:layout="@layout/fragment_register" />
+
+	<fragment
+		android:id="@+id/navigationHome"
+		android:name="com.codequark.superhero.ui.fragments.HomeFragment"
+		android:label="@string/titleHome"
+		tools:layout="@layout/fragment_home" />
+
+	<fragment
+		android:id="@+id/navigationSearch"
+		android:name="com.codequark.superhero.ui.fragments.SearchFragment"
+		android:label="@string/titleSearch"
+		tools:layout="@layout/fragment_search" />
 
 </navigation>

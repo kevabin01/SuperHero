@@ -6,7 +6,6 @@ import com.codequark.superhero.retrofit.base.RetrofitRequest
 import com.codequark.superhero.retrofit.models.Result
 import com.codequark.superhero.retrofit.services.SearchService
 import com.codequark.superhero.utils.Constants.JsonConstants
-import com.codequark.superhero.utils.LogUtils
 import java.io.IOException
 
 class SearchRequest: RetrofitRequest(
@@ -27,7 +26,7 @@ class SearchRequest: RetrofitRequest(
 
                 if(model != null) {
                     try {
-                        LogUtils.print(model.name)
+                        return model
                     } catch (ex: Exception) {
                         onError(ex)
                     }
