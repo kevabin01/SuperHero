@@ -13,6 +13,7 @@
 
 		<activity
 			android:name=".ui.activities.MainActivity"
+			android:theme="@style/AppTheme.Activity.Main"
 			android:exported="true">
 
 			<intent-filter>

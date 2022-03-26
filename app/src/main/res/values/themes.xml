@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 	<!-- Base application theme. -->
 	<style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
 		<!-- Customize your theme here. -->
@@ -8,6 +8,14 @@
 		<item name="colorAccent">@color/colorAccent</item>
 		<item name="colorSecondaryContainer">@color/colorPrimary</item>
 		<item name="colorOnSecondaryContainer">@color/colorWhite</item>
+	</style>
+
+	<style name="AppTheme.Activity.Main" parent="@style/AppTheme">
+		<!-- true = white and false = black -->
+		<item name="android:statusBarColor">@color/statusBarColor</item>
+		<item name="android:navigationBarColor">@color/navigationBarColor</item>
+		<item name="android:windowLightStatusBar">false</item>
+		<item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
 	</style>
 
 	<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
