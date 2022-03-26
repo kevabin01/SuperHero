@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	app:startDestination="@id/navigationLogin">
+
+	<fragment
+		android:id="@+id/navigationLogin"
+		android:name="com.codequark.superhero.ui.fragments.LoginFragment"
+		android:label="@string/titleLogin"
+		tools:layout="@layout/fragment_login" >
+
+		<action
+			android:id="@+id/action_navigationLogin_to_navigationRegistro"
+			app:destination="@id/navigationRegistro" />
+
+	</fragment>
+
+	<fragment
+		android:id="@+id/navigationRegistro"
+		android:name="com.codequark.superhero.ui.fragments.RegistroFragment"
+		android:label="@string/titleRegistro"
+		tools:layout="@layout/fragment_registro" />
+
+</navigation>
