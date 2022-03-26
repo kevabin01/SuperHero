@@ -3,7 +3,7 @@ buildscript {
     ext {
         compileSdkVersion = 31
         targetSdkVersion = 31
-        minSdkVersion = 26
+        minSdkVersion = 21
 
         gradleVersion = '7.1.2'
         googleServicesVersion = '4.3.10'

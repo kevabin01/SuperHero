@@ -15,7 +15,7 @@ class SearchRequest: RetrofitRequest(
     override suspend fun onExecute(@NonNull params: HashMap<String, Any>): Result? {
         try {
             val apiKey = Endpoints.API_KEY
-            val query: String = params.getOrDefault(JsonConstants.query, "") as String
+            val query: String = params[JsonConstants.query] as String
 
             val service: SearchService = retrofit.create(SearchService::class.java)
             @Suppress("BlockingMethodInNonBlockingContext")
