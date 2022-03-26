@@ -28,7 +28,7 @@ open class DaoRepository(@NonNull context: Context): BaseRepository() {
         this.heroDao.insert(model)
     }
 
-    fun insertAccounts(@NonNull list: List<Hero>) = ioThread {
+    fun insert(@NonNull list: List<Hero>) = ioThread {
         this.heroDao.insert(list)
     }
 
@@ -36,7 +36,7 @@ open class DaoRepository(@NonNull context: Context): BaseRepository() {
         this.heroDao.replace(model)
     }
 
-    fun replaceAccounts(@NonNull list: List<Hero>) = ioThread {
+    fun replace(@NonNull list: List<Hero>) = ioThread {
         this.heroDao.replace(list)
     }
 
@@ -44,7 +44,7 @@ open class DaoRepository(@NonNull context: Context): BaseRepository() {
         this.heroDao.update(model)
     }
 
-    fun updateAccounts(@NonNull list: List<Hero>) = ioThread {
+    fun update(@NonNull list: List<Hero>) = ioThread {
         this.heroDao.update(list)
     }
 
@@ -52,7 +52,11 @@ open class DaoRepository(@NonNull context: Context): BaseRepository() {
         this.heroDao.delete(model)
     }
 
-    fun deleteAccounts(@NonNull list: List<Hero>) = ioThread {
+    fun delete(@NonNull list: List<Hero>) = ioThread {
         this.heroDao.delete(list)
+    }
+
+    fun deleteAll() = ioThread {
+        this.heroDao.deleteAll()
     }
 }

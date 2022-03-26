@@ -12,6 +12,7 @@
 	<color name="backgroundLayoutIcon">@color/colorPrimary</color>
 	<color name="backgroundCardView">@color/colorWhite</color>
 	<color name="backgroundRecyclerView">@color/backgroundPrimary</color>
+	<color name="backgroundBottomNav">@color/colorWhite</color>
 
 	<color name="statusBarColor">@color/colorPrimary</color>
 	<color name="navigationBarColor">@color/backgroundSecondary</color>

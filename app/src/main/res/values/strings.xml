@@ -4,11 +4,10 @@
 
 	<string name="titleLogin">Iniciar sesión</string>
 	<string name="titleRegister">Registro</string>
-	<string name="titleHome">Registro</string>
+	<string name="titleHome">Inicio</string>
 	<string name="titleSearch">Buscar</string>
 	<string name="titleEmail">Correo electrónico</string>
 	<string name="titlePassword">Contraseña</string>
-	<string name="titleRegistrar">Registrar</string>
 	<string name="titleRegistrarse">Registrarse</string>
 	<string name="titleLogout">Cerrar sesión</string>
 

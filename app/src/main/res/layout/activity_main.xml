@@ -41,8 +41,21 @@
 			android:id="@+id/fab"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:layout_above="@id/bottomNavigationView"
+			android:layout_alignParentBottom="false"
 			android:contentDescription="@string/titleAppName"
 			style="@style/Style.FloatingActionButton.Search" />
+
+		<com.google.android.material.bottomnavigation.BottomNavigationView
+			android:id="@+id/bottomNavigationView"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/backgroundBottomNav"
+			android:layout_alignParentBottom="true"
+			app:itemTextColor="@color/textColor"
+			app:labelVisibilityMode="labeled"
+			app:menu="@menu/bottom_nav_menu"
+			app:itemIconSize="25dp" />
 
 	</RelativeLayout>
 

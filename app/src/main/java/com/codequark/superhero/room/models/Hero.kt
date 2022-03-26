@@ -71,6 +71,10 @@ data class Hero(
     val gender: String,
 
     @NonNull
+    @ColumnInfo(name = RoomConstants.columnRace)
+    val race: String,
+
+    @NonNull
     @ColumnInfo(name = RoomConstants.columnHeight)
     val height: String,
 
@@ -130,6 +134,7 @@ data class Hero(
                 publisher == other.publisher &&
                 alignment == other.alignment &&
                 gender == other.gender &&
+                race == other.race &&
                 height == other.height &&
                 weight == other.weight &&
                 eyeColor == other.eyeColor &&
@@ -142,6 +147,6 @@ data class Hero(
     }
 
     override fun hashCode(): Int {
-        return Objects.hash(id, name, intelligence, strength, speed, durability, power, combat, fullName, alterEgos, placeOfBirth, firstAppearance, publisher, alignment, gender, height, weight, eyeColor, hairColor, occupation, base, groupAffiliation, relatives, imageUrl)
+        return Objects.hash(id, name, intelligence, strength, speed, durability, power, combat, fullName, alterEgos, placeOfBirth, firstAppearance, publisher, alignment, gender, race, height, weight, eyeColor, hairColor, occupation, base, groupAffiliation, relatives, imageUrl)
     }
 }

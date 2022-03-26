@@ -23,6 +23,7 @@ class RoomConstants {
         const val columnPublisher = "publisher"
         const val columnAlignment = "alignment"
         const val columnGender = "gender"
+        const val columnRace = "race"
         const val columnHeight = "height"
         const val columnWeight = "weight"
         const val columnEyeColor = "eyeColor"

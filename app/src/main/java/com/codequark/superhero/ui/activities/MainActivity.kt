@@ -17,15 +17,10 @@ import androidx.navigation.ui.NavigationUI
 import com.codequark.superhero.R
 import com.codequark.superhero.databinding.ActivityMainBinding
 import com.codequark.superhero.managers.NetworkManager.NetworkStateDef
-import com.codequark.superhero.retrofit.requests.SearchRequest
-import com.codequark.superhero.utils.Constants
 import com.codequark.superhero.utils.LogUtils
 import com.codequark.superhero.viewModels.MainViewModel
 import com.codequark.superhero.viewModels.NetworkViewModel
 import com.codequark.superhero.viewModels.ViewModelFactory
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class MainActivity: AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -86,17 +81,6 @@ class MainActivity: AppCompatActivity() {
 
                 }
             }
-        }
-
-        @Suppress("EXPERIMENTAL_API_USAGE")
-        GlobalScope.launch(Dispatchers.IO) {
-            val params: HashMap<String, Any> = HashMap()
-
-            val query = "batman"
-            params[Constants.JsonConstants.query] = query
-
-            val request = SearchRequest()
-            //request.execute(params)
         }
     }
 
