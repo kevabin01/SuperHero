@@ -15,14 +15,14 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.codequark.superhero.R;
-import com.codequark.superhero.databinding.FragmentRegistroBinding;
+import com.codequark.superhero.databinding.FragmentRegisterBinding;
 import com.codequark.superhero.managers.NetworkManager.LoginStateDef;
 import com.codequark.superhero.ui.dialogs.LoadingDialog;
 import com.codequark.superhero.viewModels.MainViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class RegistroFragment extends Fragment {
-    private FragmentRegistroBinding binding;
+public class RegisterFragment extends Fragment {
+    private FragmentRegisterBinding binding;
 
     private MainViewModel viewModel;
 
@@ -32,7 +32,7 @@ public class RegistroFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        binding = FragmentRegistroBinding.inflate(inflater, container, false);
+        binding = FragmentRegisterBinding.inflate(inflater, container, false);
         binding.setViewModel(viewModel);
         return binding.getRoot();
     }

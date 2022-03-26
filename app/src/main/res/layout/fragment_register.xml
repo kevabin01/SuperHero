@@ -28,7 +28,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:text="@string/titleRegistro"
+                    android:text="@string/titleRegister"
                     android:textSize="18sp"
                     android:textColor="@color/colorWhite"
                     android:gravity="center"
