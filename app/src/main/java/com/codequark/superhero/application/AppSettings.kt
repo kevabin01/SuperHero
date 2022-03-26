@@ -5,7 +5,6 @@ import androidx.annotation.Nullable
 import com.codequark.superhero.R
 import com.codequark.superhero.managers.PreferenceManager
 import com.codequark.superhero.models.login.Login
-import com.codequark.superhero.utils.LogUtils
 
 class AppSettings {
     companion object {
@@ -30,10 +29,6 @@ class AppSettings {
             val firebaseId = PreferenceManager.getInstance().getString(R.string.key_firebase_id)
             val email = PreferenceManager.getInstance().getString(R.string.key_email)
             val password = PreferenceManager.getInstance().getString(R.string.key_password)
-
-            LogUtils.print("firebaseId: $firebaseId")
-            LogUtils.print("email: $email")
-            LogUtils.print("password: $password")
 
             return if(firebaseId.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 null
