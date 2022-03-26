@@ -2,4 +2,26 @@
 <resources>
 	<string name="titleAppName">SuperHero</string>
 
+	<string name="titleLogin">Iniciar sesión</string>
+	<string name="titleRegistro">Registro</string>
+	<string name="titleUsuario">Usuario</string>
+	<string name="titlePassword">Contraseña</string>
+	<string name="titleRegistrar">Registrar</string>
+	<string name="titleRegistrarse">Registrarse</string>
+
+	<string name="textLogin" translatable="false">Iniciar sesión</string>
+	<string name="textError">Ha ocurrido un error, inténtalo de nuevo</string>
+	<string name="textCheckInternet">Compruebe su conexión a internet</string>
+	<string name="textUsuarioVacio">El usuario no puede estár vacío</string>
+	<string name="textPasswordVacio">La contraseña no puede estár vacía</string>
+	<string name="textErrorCampoVacio">El campo no puede quedar vacío</string>
+	<string name="textErrorCampoLongitud">El campo debe ser de al menos 6 caracteres</string>
+	<string name="textUsuarioInvalido">Usuario invalido, verifiquelo por favor</string>
+	<string name="textPasswordInvalido">Contraseña invalida, verifiquelo por favor</string>
+	<string name="textUsuarioExiste">Este usuario ya existe, intente con otro</string>
+	<string name="textUsuarioNoExiste">No se encuentra ninguna cuenta registrada</string>
+	<string name="textErrorLoginDemasiadosIntentos">Se han realizado demasiados intentos, intente de nuevo en 15 minutos</string>
+
+	<!-- SharedPreferences -->
+	<string name="key_login">key_login</string>
 </resources>
