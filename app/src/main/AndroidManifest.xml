@@ -3,15 +3,16 @@
 	package="com.codequark.superhero">
 
 	<application
+		android:name=".application.Application"
 		android:allowBackup="true"
 		android:icon="@mipmap/ic_launcher"
-		android:label="@string/app_name"
+		android:label="@string/titleAppName"
 		android:roundIcon="@mipmap/ic_launcher_round"
 		android:supportsRtl="true"
-		android:theme="@style/Theme.SuperHero">
+		android:theme="@style/AppTheme">
 
 		<activity
-			android:name=".MainActivity"
+			android:name=".ui.activities.MainActivity"
 			android:exported="true">
 
 			<intent-filter>
