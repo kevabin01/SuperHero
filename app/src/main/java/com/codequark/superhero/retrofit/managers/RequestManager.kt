@@ -4,9 +4,7 @@ import android.annotation.SuppressLint
 import androidx.annotation.NonNull
 import com.codequark.superhero.retrofit.interceptor.RetrofitInterceptor
 import com.codequark.superhero.utils.LogUtils
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -54,7 +52,7 @@ abstract class RequestManager<Result>(
     protected abstract suspend fun onExecute(@NonNull params: HashMap<String, Any>): Result?
     protected abstract suspend fun onPostExecute(result: Result?)
 
-    fun CoroutineScope.execute(@NonNull params: HashMap<String, Any>) = launch {
+    suspend fun execute(@NonNull params: HashMap<String, Any>) {
         val networkAvailable = withContext(Dispatchers.Main) {
             onPreExecute()
         }

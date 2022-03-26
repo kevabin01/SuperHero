@@ -4,6 +4,7 @@ import androidx.annotation.NonNull
 import com.codequark.superhero.interfaces.ErrorListener
 import com.codequark.superhero.interfaces.NetworkListener
 import com.codequark.superhero.interfaces.SuccessListener
+import com.codequark.superhero.managers.NetworkManager
 import com.codequark.superhero.retrofit.managers.RequestManager
 import com.codequark.superhero.retrofit.models.Result
 import kotlinx.coroutines.Dispatchers
@@ -59,7 +60,7 @@ abstract class RetrofitRequest(
         }
     }
 
-    suspend fun sendError(@NonNull response: Response<String>) {
+    suspend fun sendError(@NonNull response: Response<Result>) {
         val content: String = if(response.body() != null) {
             "Code: " + response.code() + " - Response: " + response.body()
         } else {
@@ -67,5 +68,21 @@ abstract class RetrofitRequest(
         }
 
         onError(RuntimeException(content))
+    }
+
+    override suspend fun onPreExecute(): Boolean {
+        return if(NetworkManager.isNetworkConnected()) {
+            onConnected()
+            true
+        } else {
+            onDisconnected()
+            false
+        }
+    }
+
+    override suspend fun onPostExecute(result: Result?) {
+        if(result != null) {
+            onSuccess(result)
+        }
     }
 }
