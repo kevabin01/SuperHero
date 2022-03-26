@@ -89,7 +89,7 @@ class WriteManager {
         }
 
         fun writeLog(@NonNull text: String) {
-            if(BaseUtils.isTest() && ENABLE_WRITE_LOGS) {
+            if(ENABLE_WRITE_LOGS) {
                 if(text.isEmpty()) {
                     return
                 }
@@ -111,7 +111,7 @@ class WriteManager {
         }
 
         fun writeTitle(@NonNull text: String) {
-            if(BaseUtils.isTest() && ENABLE_WRITE_LOGS) {
+            if(ENABLE_WRITE_LOGS) {
                 if(text.isEmpty()) {
                     return
                 }
@@ -137,7 +137,7 @@ class WriteManager {
 
         @NonNull
         private fun getFileContent(): String {
-            if(BaseUtils.isTest() && ENABLE_WRITE_LOGS) {
+            if(ENABLE_WRITE_LOGS) {
                 val fileReader = FileReader(logFile)
                 val reader = BufferedReader(fileReader)
                 val stringBuilder = StringBuilder()
