@@ -99,6 +99,9 @@ dependencies {
     implementation "com.google.firebase:firebase-database:$firebaseDatabaseVersion"
     implementation "com.google.firebase:firebase-auth:$firebaseAuthVersion"
 
+    // GSON
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"

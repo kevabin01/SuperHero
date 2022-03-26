@@ -93,10 +93,12 @@ class MainRepository private constructor(@NonNull context: Context) {
             if(authResult.user == null) {
                 return@OnSuccessListener
             }
+
             val firebaseId = authResult.user!!.uid
             AppSettings.login(Login(firebaseId, login.email, login.password))
             setLoginState(LoginStateDef.STATE_LOGIN_SUCCESS)
         })
+
         task.addOnFailureListener { ex ->
             when (ex) {
                 is FirebaseNetworkException -> {

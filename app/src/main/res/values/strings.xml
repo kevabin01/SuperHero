@@ -10,6 +10,7 @@
 	<string name="titlePassword">Contraseña</string>
 	<string name="titleRegistrar">Registrar</string>
 	<string name="titleRegistrarse">Registrarse</string>
+	<string name="titleLogout">Cerrar sesión</string>
 
 	<string name="textLogin" translatable="false">Iniciar sesión</string>
 	<string name="textError">Ha ocurrido un error, inténtalo de nuevo</string>
@@ -28,5 +29,7 @@
 	<string name="textTryNewSearch">Intenta una nueva búsqueda</string>
 
 	<!-- SharedPreferences -->
-	<string name="key_login">key_login</string>
+	<string name="key_firebase_id">key_firebaseId</string>
+	<string name="key_email">key_email</string>
+	<string name="key_password">key_password</string>
 </resources>

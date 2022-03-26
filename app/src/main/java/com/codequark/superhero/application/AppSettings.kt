@@ -4,10 +4,8 @@ import androidx.annotation.NonNull
 import androidx.annotation.Nullable
 import com.codequark.superhero.R
 import com.codequark.superhero.managers.PreferenceManager
-import com.codequark.superhero.managers.ResourceManager
 import com.codequark.superhero.models.login.Login
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.codequark.superhero.utils.LogUtils
 
 class AppSettings {
     companion object {
@@ -16,25 +14,31 @@ class AppSettings {
         }
 
         fun logout() {
-            PreferenceManager.getInstance().cleanKey(R.string.key_login)
+            PreferenceManager.getInstance().cleanKey(R.string.key_firebase_id)
+            PreferenceManager.getInstance().cleanKey(R.string.key_email)
+            PreferenceManager.getInstance().cleanKey(R.string.key_password)
         }
 
         private fun setLogin(@NonNull login: Login) {
-            val gson = Gson()
-            val json = gson.toJson(login)
-            PreferenceManager.getInstance().set(R.string.key_login, json)
+            PreferenceManager.getInstance().set(R.string.key_firebase_id, login.firebaseId)
+            PreferenceManager.getInstance().set(R.string.key_email, login.email)
+            PreferenceManager.getInstance().set(R.string.key_password, login.password)
         }
 
         @Nullable
         fun getLogin(): Login? {
-            return try {
-                val gson = Gson()
-                val type = object: TypeToken<Login>(){}.type
-                val json = ResourceManager.getInstance().getString(R.string.key_login)
+            val firebaseId = PreferenceManager.getInstance().getString(R.string.key_firebase_id)
+            val email = PreferenceManager.getInstance().getString(R.string.key_email)
+            val password = PreferenceManager.getInstance().getString(R.string.key_password)
 
-                gson.fromJson(json, type)
-            } catch (ex: Exception) {
+            LogUtils.print("firebaseId: $firebaseId")
+            LogUtils.print("email: $email")
+            LogUtils.print("password: $password")
+
+            return if(firebaseId.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 null
+            } else {
+                Login(firebaseId, email, password)
             }
         }
     }
