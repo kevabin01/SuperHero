@@ -18,11 +18,13 @@ class MainViewModel(application: Application): LoginViewModel(application) {
     private val handler = Handler(Looper.getMainLooper())
 
     @NonNull
-    private var query = ""
-
-    @NonNull
     fun getDestination(): LiveData<Int> {
         return destination
+    }
+
+    @NonNull
+    fun getQuery(): String {
+        return repository.getQuery()
     }
 
     val navConfiguration: AppBarConfiguration = repository.navConfiguration
@@ -32,7 +34,7 @@ class MainViewModel(application: Application): LoginViewModel(application) {
     }
 
     fun setQuery(@NonNull query: String) {
-        this.query = query
+        this.repository.setQuery(query)
 
         if(query.isEmpty()) {
             return
@@ -42,11 +44,6 @@ class MainViewModel(application: Application): LoginViewModel(application) {
         this.handler.postDelayed({
             requestSearch(query)
         }, 1000)
-    }
-
-    @NonNull
-    fun getQuery(): String {
-        return query
     }
 
     fun getInfo(@NonNull hero: Hero): List<HeroItem> {

@@ -27,6 +27,9 @@ class MainRepository private constructor(@NonNull context: Context): LoginReposi
     private val destination = SecureLiveData(0)
 
     @NonNull
+    private var query = ""
+
+    @NonNull
     val navConfiguration: AppBarConfiguration = AppBarConfiguration.Builder(
         R.id.navigationLogin,
         R.id.navigationRegister,
@@ -39,9 +42,18 @@ class MainRepository private constructor(@NonNull context: Context): LoginReposi
         return destination
     }
 
+    @NonNull
+    fun getQuery(): String {
+        return query
+    }
+
     fun setDestination(@IdRes destination: Int) {
         this.destination.value = destination
         this.destination.postValue(0)
+    }
+
+    fun setQuery(@NonNull query: String) {
+        this.query = query
     }
 
     fun logout() {

@@ -26,7 +26,7 @@
 	<string name="textEnterSearch">Ingrese su búsqueda</string>
 	<string name="textHistory">Historial de visualización</string>
 	<string name="textNoResults">Sin resultados</string>
-	<string name="textTryNewSearch">Intenta una nueva búsqueda</string>
+	<string name="textTryNewSearch">Intente con una nueva búsqueda</string>
 
 	<!-- SharedPreferences -->
 	<string name="key_firebase_id">key_firebaseId</string>

@@ -58,8 +58,6 @@ class SearchFragment: Fragment() {
                     binding.layoutEmpty.containerEmpty.visibility = View.GONE
                     binding.recyclerView.visibility = View.VISIBLE
                 }
-
-                binding.recyclerView.smoothScrollToPosition(0)
             }
         })
 

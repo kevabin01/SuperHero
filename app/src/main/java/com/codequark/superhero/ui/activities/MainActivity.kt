@@ -197,7 +197,7 @@ class MainActivity: AppCompatActivity() {
     override fun onBackPressed() {
         val navDestination = navController.currentDestination
 
-        if(navDestination != null && (navDestination.id == R.id.navigationLogin || navDestination.id == R.id.navigationHistory)) {
+        if(navDestination != null && (navDestination.id == R.id.navigationLogin || navDestination.id == R.id.navigationSearch || navDestination.id == R.id.navigationHistory)) {
             finish()
         } else {
             super.onBackPressed()
