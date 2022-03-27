@@ -5,8 +5,8 @@ import android.view.View
 import androidx.annotation.NonNull
 import androidx.lifecycle.LiveData
 import com.codequark.superhero.R
-import com.codequark.superhero.managers.NetworkManager.LoginStateDef
 import com.codequark.superhero.models.login.Login
+import com.codequark.superhero.utils.Constants.LoginStateDef
 
 open class LoginViewModel(application: Application): RequestViewModel(application) {
     @NonNull
@@ -28,7 +28,7 @@ open class LoginViewModel(application: Application): RequestViewModel(applicatio
         email = email.trim()
 
         if(email.isEmpty()) {
-            setLoginState(LoginStateDef.STATE_LOGIN_ERROR_USUARIO_EMPTY)
+            setLoginState(LoginStateDef.STATE_LOGIN_ERROR_EMAIL_EMPTY)
             return
         }
 
@@ -38,7 +38,7 @@ open class LoginViewModel(application: Application): RequestViewModel(applicatio
         }
 
         if(password.length < 6) {
-            setLoginState(LoginStateDef.STATE_LOGIN_ERROR_PASSWORD_LONGITUD)
+            setLoginState(LoginStateDef.STATE_LOGIN_ERROR_PASSWORD_LENGTH)
             return
         }
 
@@ -58,7 +58,7 @@ open class LoginViewModel(application: Application): RequestViewModel(applicatio
         email = email.trim()
 
         if(email.isEmpty()) {
-            setLoginState(LoginStateDef.STATE_LOGIN_ERROR_USUARIO_EMPTY)
+            setLoginState(LoginStateDef.STATE_LOGIN_ERROR_EMAIL_EMPTY)
             return
         }
 
@@ -68,7 +68,7 @@ open class LoginViewModel(application: Application): RequestViewModel(applicatio
         }
 
         if(password.length < 6) {
-            setLoginState(LoginStateDef.STATE_LOGIN_ERROR_PASSWORD_LONGITUD)
+            setLoginState(LoginStateDef.STATE_LOGIN_ERROR_PASSWORD_LENGTH)
             return
         }
 

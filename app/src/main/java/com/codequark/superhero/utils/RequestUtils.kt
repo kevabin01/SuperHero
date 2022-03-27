@@ -7,9 +7,6 @@ import java.io.EOFException
 class RequestUtils {
     companion object {
         const val request = "Request"
-        const val response = "Response"
-        const val responseBodyError = "Response body is null"
-        const val responseServerError = "Server Error"
 
         fun isPlaintext(@NonNull buffer: Buffer): Boolean {
             return try {

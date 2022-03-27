@@ -26,13 +26,11 @@ buildscript {
         firebaseCoreVersion = '20.1.2'
         firebaseAnalyticsVersion = '20.1.2'
         firebaseCrashlyticsVersion = '18.2.9'
-        firebaseDatabaseVersion = '20.0.4'
         firebaseAuthVersion = '21.0.3'
 
         // ImageManager
         glideVersion = '4.13.1'
         circleImageVersion = '3.1.0'
-        touchImageVersion = '3.0.1'
 
         // GSON
         gsonVersion = '2.9.0'

@@ -5,8 +5,8 @@ import android.util.Log
 import androidx.annotation.NonNull
 import androidx.lifecycle.LiveData
 import com.codequark.superhero.application.AppSettings
-import com.codequark.superhero.managers.NetworkManager.LoginStateDef
 import com.codequark.superhero.models.login.Login
+import com.codequark.superhero.utils.Constants.LoginStateDef
 import com.codequark.superhero.viewModels.SecureLiveData
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.FirebaseNetworkException

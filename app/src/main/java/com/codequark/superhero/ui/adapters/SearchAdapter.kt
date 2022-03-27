@@ -31,6 +31,10 @@ class SearchAdapter(listener: ItemListener<SuperHero>): BaseAdapter<SuperHero>(l
             binding.container.setOnClickListener {
                 listener.onItemSelected(item)
             }
+
+            binding.ivImage.setOnClickListener {
+                listener.onItemSelected(item)
+            }
         }
     }
 }

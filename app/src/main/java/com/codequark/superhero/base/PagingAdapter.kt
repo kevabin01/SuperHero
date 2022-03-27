@@ -13,8 +13,6 @@ abstract class PagingAdapter<R: Any>(
     diffCallback: DiffUtil.ItemCallback<R>,
     val listener: ItemListener<R>
 ): PagingDataAdapter<R, BindingHolder>(diffCallback) {
-    constructor(diffCallback: DiffUtil.ItemCallback<R>): this(diffCallback, object: ItemListener<R> {})
-
     @NonNull
     private val loadStateListener = { combinedLoadStates: CombinedLoadStates ->
         val loadState = combinedLoadStates.source.refresh
@@ -22,10 +20,6 @@ abstract class PagingAdapter<R: Any>(
         if(loadState is LoadState.NotLoading) {
             val itemCount = itemCount
             listener.onDataSet(itemCount == 0, itemCount)
-
-            if(itemCount > 0) {
-                listener.onRestoreState()
-            }
         }
     }
 

@@ -12,7 +12,7 @@ import androidx.fragment.app.viewModels
 import com.codequark.superhero.R
 import com.codequark.superhero.application.AppSettings.Companion.getLogin
 import com.codequark.superhero.databinding.FragmentLoginBinding
-import com.codequark.superhero.managers.NetworkManager.LoginStateDef
+import com.codequark.superhero.utils.Constants.LoginStateDef
 import com.codequark.superhero.viewModels.MainViewModel
 import com.codequark.superhero.viewModels.ViewModelFactory
 
@@ -52,7 +52,7 @@ class LoginFragment: Fragment() {
                     showToast(R.string.textCheckInternet)
                 }
 
-                LoginStateDef.STATE_LOGIN_ERROR_USUARIO -> {
+                LoginStateDef.STATE_LOGIN_ERROR_EMAIL -> {
                     viewModel.setUpdating(false)
                     showToast(R.string.textUsuarioInvalido)
                 }
@@ -62,7 +62,7 @@ class LoginFragment: Fragment() {
                     showToast(R.string.textPasswordInvalido)
                 }
 
-                LoginStateDef.STATE_LOGIN_ERROR_USUARIO_EMPTY -> {
+                LoginStateDef.STATE_LOGIN_ERROR_EMAIL_EMPTY -> {
                     binding.edtEmail.error = text(R.string.textUsuarioVacio)
                     binding.edtEmail.requestFocus()
                 }
@@ -72,7 +72,7 @@ class LoginFragment: Fragment() {
                     binding.edtPassword.requestFocus()
                 }
 
-                LoginStateDef.STATE_LOGIN_ERROR_PASSWORD_LONGITUD -> {
+                LoginStateDef.STATE_LOGIN_ERROR_PASSWORD_LENGTH -> {
                     binding.edtPassword.error = text(R.string.textErrorCampoLongitud)
                     binding.edtPassword.requestFocus()
                 }

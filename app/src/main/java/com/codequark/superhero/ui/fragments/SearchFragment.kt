@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.codequark.superhero.databinding.FragmentSearchBinding
 import com.codequark.superhero.interfaces.ItemListener
+import com.codequark.superhero.managers.NetworkManager
 import com.codequark.superhero.models.SuperHero
 import com.codequark.superhero.ui.activities.SuperHeroActivity
 import com.codequark.superhero.ui.adapters.SearchAdapter
@@ -33,8 +34,12 @@ class SearchFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         adapter = SearchAdapter(object: ItemListener<SuperHero> {
             override fun onItemSelected(item: SuperHero) {
-                viewModel.setSuperHero(item)
-                startActivity(Intent(requireContext(), SuperHeroActivity::class.java))
+                if(NetworkManager.isNetworkConnected()) {
+                    viewModel.setSuperHero(item)
+                    startActivity(Intent(requireContext(), SuperHeroActivity::class.java))
+                } else {
+                    viewModel.setConnection(true)
+                }
             }
 
             override fun onDataSet(isEmpty: Boolean, itemCount: Int) {
