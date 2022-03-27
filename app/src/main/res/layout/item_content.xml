@@ -14,7 +14,7 @@
         android:id="@+id/ivImage"
         android:layout_width="@dimen/layoutIconSize"
         android:layout_height="@dimen/layoutIconSize"
-        android:src="@drawable/background_search"
+        android:src="@drawable/background"
         android:padding="20dp"
         android:contentDescription="@string/titleAppName"
         app:tint="@color/backgroundLayoutIcon" />
