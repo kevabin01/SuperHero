@@ -3,6 +3,7 @@ package com.codequark.superhero.viewModels
 import android.app.Application
 import androidx.annotation.NonNull
 import androidx.lifecycle.LiveData
+import com.codequark.superhero.models.SuperHero
 import com.codequark.superhero.utils.Constants
 
 open class RequestViewModel(application: Application): DaoViewModel(application) {
@@ -14,6 +15,15 @@ open class RequestViewModel(application: Application): DaoViewModel(application)
 
     @NonNull
     private val connection = repository.getConnection()
+
+    @NonNull
+    val superHero: LiveData<SuperHero> = repository.getSuperHero()
+
+    @NonNull
+    val superHeroes: LiveData<List<SuperHero>> = repository.getSuperHeroes()
+
+    @NonNull
+    val superHeroId: LiveData<String> = repository.getSuperHeroId()
 
     @NonNull
     fun getUpdating(): LiveData<Boolean> {

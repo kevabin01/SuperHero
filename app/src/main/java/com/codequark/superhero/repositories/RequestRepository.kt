@@ -33,6 +33,9 @@ open class RequestRepository(@NonNull context: Context): DaoRepository(context) 
     @NonNull
     fun getSuperHeroes(): LiveData<List<SuperHero>> = superHeroes
 
+    @NonNull
+    fun getSuperHeroId(): LiveData<String> = superHeroId
+
     private fun setSuperHero(@NonNull superHero: SuperHero) {
         this.superHero.value = superHero
         this.superHero.postValue(null)

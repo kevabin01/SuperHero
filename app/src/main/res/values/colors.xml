@@ -13,6 +13,7 @@
 	<color name="backgroundCardView">@color/colorWhite</color>
 	<color name="backgroundRecyclerView">@color/backgroundPrimary</color>
 	<color name="backgroundBottomNav">@color/colorWhite</color>
+	<color name="backgroundItem">@color/colorPrimary</color>
 
 	<color name="statusBarColor">@color/colorPrimary</color>
 	<color name="navigationBarColor">@color/backgroundSecondary</color>
@@ -21,6 +22,7 @@
 
 	<color name="hintColor">@color/colorWhite</color>
 
+	<color name="colorBlack">#000000</color>
 	<color name="colorWhite">#f0f0f0</color>
 	<color name="colorDark">#454749</color>
 	<color name="colorGray">#686868</color>
