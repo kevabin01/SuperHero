@@ -99,6 +99,18 @@ class MainActivity: AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_main, menu)
 
         val searchItem = menu.findItem(R.id.actionSearch)
+        searchItem.setOnActionExpandListener(object: MenuItem.OnActionExpandListener {
+            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+                binding.fab.visibility = View.VISIBLE
+                return true
+            }
+
+            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+                binding.fab.visibility = View.GONE
+                return true
+            }
+        })
+
         val searchManager = getSystemService(SEARCH_SERVICE) as SearchManager
         val searchView = searchItem.actionView as SearchView
 

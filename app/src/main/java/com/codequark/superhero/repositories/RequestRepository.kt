@@ -76,14 +76,18 @@ open class RequestRepository(@NonNull context: Context): DaoRepository(context) 
 
                 when (result) {
                     is SearchResult -> {
-                        LogUtils.print("Success Search with response: " + result.response + " and resultsFor: " + result.resultsFor)
+                        if(result.response == "success") {
+                            LogUtils.print("Success Search with response: " + result.response + " and resultsFor: " + result.resultsFor)
 
-                        val list: List<SuperHero> = result.results
-                        val heroes = fromSuperHeroToHero(list)
+                            val list: List<SuperHero> = result.results
+                            val heroes = fromSuperHeroToHero(list)
 
-                        replace(heroes)
+                            replace(heroes)
 
-                        setSuperHeroes(list)
+                            setSuperHeroes(list)
+                        } else {
+                            setSuperHeroes(emptyList())
+                        }
                     }
 
                     else -> {
