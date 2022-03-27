@@ -3,29 +3,30 @@ package com.codequark.superhero.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.NonNull
-import com.codequark.superhero.base.BaseAdapter
+import com.codequark.superhero.base.PagingAdapter
 import com.codequark.superhero.databinding.ItemHistoryBinding
-import com.codequark.superhero.databinding.ItemSearchBinding
 import com.codequark.superhero.interfaces.ItemListener
 import com.codequark.superhero.managers.ImageManager
-import com.codequark.superhero.models.SuperHero
+import com.codequark.superhero.models.diff.DiffUtils
+import com.codequark.superhero.room.models.Hero
 import com.codequark.superhero.viewHolders.BindingHolder
 
-class HistoryAdapter(listener: ItemListener<SuperHero>): BaseAdapter<SuperHero>(listener) {
+class HistoryAdapter(listener: ItemListener<Hero>): PagingAdapter<Hero>(DiffUtils.HERO_ITEM_CALLBACK, listener) {
     @NonNull
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingHolder {
-        val binding = ItemSearchBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemHistoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return BindingHolder(binding)
     }
 
-    override fun onBindViewHolder(bindingHolder: BindingHolder, position: Int) {
-        if(bindingHolder.binding is ItemHistoryBinding) {
-            val binding = bindingHolder.binding
-            val item: SuperHero = list[position]
+    override fun onBindViewHolder(@NonNull holder: BindingHolder, @NonNull position: Int) {
+        val item = getItem(position) ?: return
+
+        if(holder.binding is ItemHistoryBinding) {
+            val binding: ItemHistoryBinding = holder.binding
+
+            ImageManager.instance.setImage(item.imageUrl, binding.ivImage)
 
             binding.tvName.text = item.name
-
-            ImageManager.instance.setImage(item.image.url, binding.ivImage)
 
             binding.container.setOnClickListener {
                 listener.onItemSelected(item)

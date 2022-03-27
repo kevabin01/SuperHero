@@ -24,6 +24,7 @@
 	<string name="textUsuarioNoExiste">No se encuentra ninguna cuenta registrada</string>
 	<string name="textErrorLoginDemasiadosIntentos">Se han realizado demasiados intentos, intente de nuevo en 15 minutos</string>
 	<string name="textEnterSearch">Ingrese su búsqueda</string>
+	<string name="textHistory">Historial de visualización</string>
 	<string name="textNoResults">Sin resultados</string>
 	<string name="textTryNewSearch">Intenta una nueva búsqueda</string>
 
