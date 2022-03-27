@@ -52,11 +52,20 @@ open class RequestViewModel(application: Application): DaoViewModel(application)
         this.repository.setConnection(connection)
     }
 
+    fun setSuperHeroId(@NonNull superHeroId: String) {
+        this.repository.setSuperHeroId(superHeroId)
+    }
+
     fun requestSearch(@NonNull query: String) {
         val params: HashMap<String, Any> = HashMap()
 
         params[Constants.JsonConstants.query] = query
 
         this.repository.requestSearch(params)
+    }
+
+    fun saveSuperHero(superHero: SuperHero) {
+        val hero = repository.fromSuperHeroToHero(superHero)
+        this.repository.replace(hero)
     }
 }

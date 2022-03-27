@@ -43,6 +43,7 @@ class MainRepository private constructor(@NonNull context: Context): LoginReposi
 
     fun logout() {
         logoutFirebase()
+        deleteAll()
         setDestination(R.id.navigationLogin)
     }
 }

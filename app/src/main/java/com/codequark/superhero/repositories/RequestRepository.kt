@@ -83,9 +83,8 @@ open class RequestRepository(@NonNull context: Context): DaoRepository(context) 
                             LogUtils.print("Success Search with response: " + result.response + " and resultsFor: " + result.resultsFor)
 
                             val list: List<SuperHero> = result.results
-                            val heroes = fromSuperHeroToHero(list)
-
-                            replace(heroes)
+                            // val heroes = fromSuperHeroesToHeroes(list)
+                            // replace(heroes)
 
                             setSuperHeroes(list)
                         } else {
@@ -110,7 +109,7 @@ open class RequestRepository(@NonNull context: Context): DaoRepository(context) 
         }
     }
 
-    fun fromSuperHeroToHero(superHeroes: List<SuperHero>): List<Hero> {
+    fun fromSuperHeroesToHeroes(superHeroes: List<SuperHero>): List<Hero> {
         val heroes = ArrayList<Hero>()
 
         superHeroes.forEach { superHero ->
@@ -146,5 +145,35 @@ open class RequestRepository(@NonNull context: Context): DaoRepository(context) 
         }
 
         return heroes
+    }
+
+    fun fromSuperHeroToHero(superHero: SuperHero): Hero {
+        return Hero(
+            superHero.id,
+            superHero.name,
+            superHero.powerstats.intelligence,
+            superHero.powerstats.strength,
+            superHero.powerstats.speed,
+            superHero.powerstats.durability,
+            superHero.powerstats.power,
+            superHero.powerstats.combat,
+            superHero.biography.fullName,
+            superHero.biography.alterEgos,
+            superHero.biography.placeOfBirth,
+            superHero.biography.firstAppearance,
+            superHero.biography.publisher,
+            superHero.biography.alignment,
+            superHero.appearance.gender,
+            superHero.appearance.race,
+            superHero.appearance.height[1],
+            superHero.appearance.weight[1],
+            superHero.appearance.eyeColor,
+            superHero.appearance.hairColor,
+            superHero.work.occupation,
+            superHero.work.base,
+            superHero.connections.groupAffiliation,
+            superHero.connections.relatives,
+            superHero.image.url
+        )
     }
 }

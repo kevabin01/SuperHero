@@ -37,7 +37,7 @@ class HistoryFragment: Fragment() {
         adapter = HistoryAdapter(object: ItemListener<Hero> {
             override fun onItemSelected(@NonNull item: Hero) {
                 if(NetworkManager.isNetworkConnected()) {
-                    //viewModel.openGraph(item)
+
                 } else {
                     viewModel.setConnection(true)
                 }

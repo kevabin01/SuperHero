@@ -204,14 +204,14 @@ class MainActivity: AppCompatActivity() {
         }
     }
 
-    private fun enableMenu(menu: Menu) {
+    private fun enableMenu(@NonNull menu: Menu) {
         menu.findItem(R.id.actionSearch).isEnabled = true
         menu.findItem(R.id.actionSearch).isVisible = true
         menu.findItem(R.id.actionLogout).isEnabled = true
         menu.findItem(R.id.actionLogout).isVisible = true
     }
 
-    private fun disableMenu(menu: Menu) {
+    private fun disableMenu(@NonNull menu: Menu) {
         menu.findItem(R.id.actionSearch).isEnabled = false
         menu.findItem(R.id.actionSearch).isVisible = false
         menu.findItem(R.id.actionLogout).isEnabled = false
@@ -225,6 +225,12 @@ class MainActivity: AppCompatActivity() {
             binding.fab.visibility = View.GONE
         } else {
             binding.fab.visibility = View.VISIBLE
+        }
+
+        if(destination.id == R.id.navigationLogin || destination.id == R.id.navigationRegister) {
+            binding.bottomNavigationView.visibility = View.GONE
+        } else {
+            binding.bottomNavigationView.visibility = View.VISIBLE
         }
 
         viewModel.setQuery("")

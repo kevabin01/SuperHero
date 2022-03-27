@@ -31,7 +31,8 @@ class SearchFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         adapter = SearchAdapter(object: ItemListener<SuperHero> {
             override fun onItemSelected(item: SuperHero) {
-
+                viewModel.saveSuperHero(item)
+                viewModel.setSuperHeroId(item.id)
             }
 
             override fun onDataSet(isEmpty: Boolean, itemCount: Int) {
