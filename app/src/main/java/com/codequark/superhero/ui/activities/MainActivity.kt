@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,7 @@ import androidx.navigation.ui.NavigationUI
 import com.codequark.superhero.R
 import com.codequark.superhero.databinding.ActivityMainBinding
 import com.codequark.superhero.managers.NetworkManager.NetworkStateDef
+import com.codequark.superhero.ui.dialogs.LoadingDialog
 import com.codequark.superhero.utils.LogUtils
 import com.codequark.superhero.viewModels.MainViewModel
 import com.codequark.superhero.viewModels.NetworkViewModel
@@ -34,6 +36,8 @@ class MainActivity: AppCompatActivity() {
     private val networkViewModel by viewModels<NetworkViewModel> {
         ViewModelFactory()
     }
+
+    private lateinit var loadingBuilder: LoadingDialog.Builder
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -61,6 +65,8 @@ class MainActivity: AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, viewModel.navConfiguration)
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController)
 
+        loadingBuilder = LoadingDialog.Builder(this)
+
         binding.bottomNavigationView.setOnItemReselectedListener {
 
         }
@@ -71,6 +77,26 @@ class MainActivity: AppCompatActivity() {
             }
 
             navController.navigate(destination)
+        }
+
+        viewModel.getUpdating().observe(this) { updating ->
+            if(updating) {
+                loadingBuilder.create()
+            } else {
+                loadingBuilder.cancel()
+            }
+        }
+
+        viewModel.getException().observe(this) { ex ->
+            ex?.let {
+                Toast.makeText(this@MainActivity, R.string.textError, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        viewModel.getConnection().observe(this) { connection ->
+            if(connection) {
+                Toast.makeText(this@MainActivity, R.string.textCheckInternet, Toast.LENGTH_SHORT).show()
+            }
         }
 
         networkViewModel.network.observe(this) { integer ->

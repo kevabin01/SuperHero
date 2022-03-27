@@ -12,10 +12,8 @@ import androidx.fragment.app.viewModels
 import com.codequark.superhero.R
 import com.codequark.superhero.databinding.FragmentRegisterBinding
 import com.codequark.superhero.managers.NetworkManager.LoginStateDef
-import com.codequark.superhero.ui.dialogs.LoadingDialog
 import com.codequark.superhero.viewModels.MainViewModel
 import com.codequark.superhero.viewModels.ViewModelFactory
-import com.google.android.material.textfield.TextInputEditText
 
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding
@@ -23,8 +21,6 @@ class RegisterFragment : Fragment() {
     private val viewModel by viewModels<MainViewModel> {
         ViewModelFactory()
     }
-
-    private lateinit var loadingBuilder: LoadingDialog.Builder
 
     @NonNull
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -35,16 +31,6 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        loadingBuilder = LoadingDialog.Builder(requireContext())
-
-        viewModel.getUpdating().observe(viewLifecycleOwner) { updating ->
-            if(updating) {
-                loadingBuilder.create()
-            } else {
-                loadingBuilder.cancel()
-            }
-        }
 
         viewModel.getLoginState().observe(viewLifecycleOwner) { integer ->
             when (integer) {
@@ -96,11 +82,6 @@ class RegisterFragment : Fragment() {
 
     private fun showToast(@StringRes resource: Int) {
         Toast.makeText(requireContext(), resource, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun extractText(@NonNull view: TextInputEditText): String {
-        val editable = view.text ?: return ""
-        return editable.toString()
     }
 
     private fun text(@StringRes key: Int): String {

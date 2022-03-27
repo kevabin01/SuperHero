@@ -13,7 +13,6 @@ import com.codequark.superhero.R
 import com.codequark.superhero.application.AppSettings.Companion.getLogin
 import com.codequark.superhero.databinding.FragmentLoginBinding
 import com.codequark.superhero.managers.NetworkManager.LoginStateDef
-import com.codequark.superhero.ui.dialogs.LoadingDialog
 import com.codequark.superhero.viewModels.MainViewModel
 import com.codequark.superhero.viewModels.ViewModelFactory
 
@@ -24,8 +23,6 @@ class LoginFragment: Fragment() {
         ViewModelFactory()
     }
 
-    private lateinit var loadingBuilder: LoadingDialog.Builder
-
     @NonNull
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
@@ -35,8 +32,6 @@ class LoginFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        loadingBuilder = LoadingDialog.Builder(requireContext())
 
         viewModel.getLoginState().observe(viewLifecycleOwner) { integer ->
             when (integer) {
@@ -98,14 +93,6 @@ class LoginFragment: Fragment() {
                     binding.edtEmail.setText("")
                     binding.edtPassword.setText("")
                 }
-            }
-        }
-
-        viewModel.getUpdating().observe(viewLifecycleOwner) { updating ->
-            if(updating) {
-                loadingBuilder.create()
-            } else {
-                loadingBuilder.cancel()
             }
         }
 
