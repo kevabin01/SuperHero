@@ -58,7 +58,7 @@
                     android:textColor="@color/textColor"
                     android:textColorHint="@color/textColor"
                     android:hint="@string/titleEmail"
-                    android:inputType="text"
+                    android:inputType="textEmailAddress"
                     android:importantForAutofill="no"
                     style="@style/Style.TextInputEditText" />
 
