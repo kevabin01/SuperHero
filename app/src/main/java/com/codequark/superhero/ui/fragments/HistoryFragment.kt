@@ -37,7 +37,7 @@ class HistoryFragment: Fragment() {
         adapter = HistoryAdapter(object: ItemListener<Hero> {
             override fun onItemSelected(@NonNull item: Hero) {
                 if(NetworkManager.isNetworkConnected()) {
-
+                    viewModel.setSuperHeroId(item.id)
                 } else {
                     viewModel.setConnection(true)
                 }
