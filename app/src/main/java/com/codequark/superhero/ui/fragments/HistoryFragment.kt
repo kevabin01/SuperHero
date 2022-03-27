@@ -1,5 +1,6 @@
 package com.codequark.superhero.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.codequark.superhero.databinding.FragmentHistoryBinding
 import com.codequark.superhero.interfaces.ItemListener
 import com.codequark.superhero.managers.NetworkManager
 import com.codequark.superhero.room.models.Hero
+import com.codequark.superhero.ui.activities.SuperHeroActivity
 import com.codequark.superhero.ui.adapters.HistoryAdapter
 import com.codequark.superhero.viewModels.MainViewModel
 import com.codequark.superhero.viewModels.ViewModelFactory
@@ -37,7 +39,8 @@ class HistoryFragment: Fragment() {
         adapter = HistoryAdapter(object: ItemListener<Hero> {
             override fun onItemSelected(@NonNull item: Hero) {
                 if(NetworkManager.isNetworkConnected()) {
-                    viewModel.setSuperHeroId(item.id)
+                    viewModel.setHero(item)
+                    startActivity(Intent(requireContext(), SuperHeroActivity::class.java))
                 } else {
                     viewModel.setConnection(true)
                 }

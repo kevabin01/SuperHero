@@ -1,5 +1,6 @@
 package com.codequark.superhero.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.codequark.superhero.databinding.FragmentSearchBinding
 import com.codequark.superhero.interfaces.ItemListener
 import com.codequark.superhero.models.SuperHero
+import com.codequark.superhero.ui.activities.SuperHeroActivity
 import com.codequark.superhero.ui.adapters.SearchAdapter
 import com.codequark.superhero.viewModels.MainViewModel
 import com.codequark.superhero.viewModels.ViewModelFactory
@@ -31,8 +33,8 @@ class SearchFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         adapter = SearchAdapter(object: ItemListener<SuperHero> {
             override fun onItemSelected(item: SuperHero) {
-                viewModel.saveSuperHero(item)
-                viewModel.setSuperHeroId(item.id)
+                viewModel.setSuperHero(item)
+                startActivity(Intent(requireContext(), SuperHeroActivity::class.java))
             }
 
             override fun onDataSet(isEmpty: Boolean, itemCount: Int) {

@@ -31,6 +31,14 @@ class HistoryAdapter(listener: ItemListener<Hero>): PagingAdapter<Hero>(DiffUtil
             binding.container.setOnClickListener {
                 listener.onItemSelected(item)
             }
+
+            binding.tvName.setOnClickListener {
+                listener.onItemSelected(item)
+            }
+
+            binding.ivImage.setOnClickListener {
+                listener.onItemSelected(item)
+            }
         }
     }
 }

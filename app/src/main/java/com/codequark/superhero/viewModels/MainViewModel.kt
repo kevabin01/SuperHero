@@ -7,6 +7,8 @@ import androidx.annotation.IdRes
 import androidx.annotation.NonNull
 import androidx.lifecycle.LiveData
 import androidx.navigation.ui.AppBarConfiguration
+import com.codequark.superhero.models.HeroItem
+import com.codequark.superhero.room.models.Hero
 
 class MainViewModel(application: Application): LoginViewModel(application) {
     @NonNull
@@ -45,5 +47,9 @@ class MainViewModel(application: Application): LoginViewModel(application) {
     @NonNull
     fun getQuery(): String {
         return query
+    }
+
+    fun getInfo(@NonNull hero: Hero): List<HeroItem> {
+        return repository.getInfo(hero)
     }
 }

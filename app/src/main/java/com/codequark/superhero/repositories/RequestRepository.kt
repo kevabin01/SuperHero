@@ -19,35 +19,24 @@ import kotlinx.coroutines.launch
 
 open class RequestRepository(@NonNull context: Context): DaoRepository(context) {
     @NonNull
-    private val superHero: SecureLiveData<SuperHero> = SecureLiveData(null)
+    private val hero: SecureLiveData<Hero> = SecureLiveData(null)
 
     @NonNull
     private val superHeroes: SecureLiveData<List<SuperHero>> = SecureLiveData(null)
 
     @NonNull
-    protected val superHeroId: SecureLiveData<String> = SecureLiveData("")
-
-    @NonNull
-    fun getSuperHero(): LiveData<SuperHero> = superHero
+    fun getHero(): LiveData<Hero> = hero
 
     @NonNull
     fun getSuperHeroes(): LiveData<List<SuperHero>> = superHeroes
 
-    @NonNull
-    fun getSuperHeroId(): LiveData<String> = superHeroId
-
-    private fun setSuperHero(@NonNull superHero: SuperHero) {
-        this.superHero.value = superHero
-        this.superHero.postValue(null)
+    fun setHero(@NonNull hero: Hero) {
+        this.hero.value = hero
     }
 
     private fun setSuperHeroes(@NonNull superHeroes: List<SuperHero>) {
         this.superHeroes.value = superHeroes
         this.superHeroes.postValue(null)
-    }
-
-    fun setSuperHeroId(@NonNull superHeroId: String) {
-        this.superHeroId.value = superHeroId
     }
 
     @NonNull

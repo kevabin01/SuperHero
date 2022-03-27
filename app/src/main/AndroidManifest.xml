@@ -34,6 +34,11 @@
 
 		</activity>
 
+		<activity
+			android:name=".ui.activities.SuperHeroActivity"
+			android:theme="@style/AppTheme.Activity.Main"
+			android:exported="true" />
+
 	</application>
 
 </manifest>

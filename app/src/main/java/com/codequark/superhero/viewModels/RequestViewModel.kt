@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.annotation.NonNull
 import androidx.lifecycle.LiveData
 import com.codequark.superhero.models.SuperHero
+import com.codequark.superhero.room.models.Hero
 import com.codequark.superhero.utils.Constants
 
 open class RequestViewModel(application: Application): DaoViewModel(application) {
@@ -17,13 +18,10 @@ open class RequestViewModel(application: Application): DaoViewModel(application)
     private val connection = repository.getConnection()
 
     @NonNull
-    val superHero: LiveData<SuperHero> = repository.getSuperHero()
+    val hero: LiveData<Hero> = repository.getHero()
 
     @NonNull
     val superHeroes: LiveData<List<SuperHero>> = repository.getSuperHeroes()
-
-    @NonNull
-    val superHeroId: LiveData<String> = repository.getSuperHeroId()
 
     @NonNull
     fun getUpdating(): LiveData<Boolean> {
@@ -52,8 +50,14 @@ open class RequestViewModel(application: Application): DaoViewModel(application)
         this.repository.setConnection(connection)
     }
 
-    fun setSuperHeroId(@NonNull superHeroId: String) {
-        this.repository.setSuperHeroId(superHeroId)
+    fun setHero(@NonNull hero: Hero) {
+        this.repository.setHero(hero)
+    }
+
+    fun setSuperHero(superHero: SuperHero) {
+        val hero = repository.fromSuperHeroToHero(superHero)
+        this.repository.replace(hero)
+        this.repository.setHero(hero)
     }
 
     fun requestSearch(@NonNull query: String) {
@@ -62,10 +66,5 @@ open class RequestViewModel(application: Application): DaoViewModel(application)
         params[Constants.JsonConstants.query] = query
 
         this.repository.requestSearch(params)
-    }
-
-    fun saveSuperHero(superHero: SuperHero) {
-        val hero = repository.fromSuperHeroToHero(superHero)
-        this.repository.replace(hero)
     }
 }

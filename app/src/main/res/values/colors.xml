@@ -8,9 +8,9 @@
 	<color name="backgroundSecondary">@color/colorWhite</color>
 	<color name="backgroundMenu">#666666</color>
 	<color name="backgroundIcons">@color/colorWhite</color>
-	<color name="backgroundButtonDialog">@color/colorGray</color>
+	<color name="backgroundButtonDialog">@color/colorGray1</color>
 	<color name="backgroundLayoutIcon">@color/colorPrimary</color>
-	<color name="backgroundCardView">@color/colorWhite</color>
+	<color name="backgroundCardView">@color/colorWhite2</color>
 	<color name="backgroundRecyclerView">@color/backgroundPrimary</color>
 	<color name="backgroundBottomNav">@color/colorWhite</color>
 	<color name="backgroundItem">@color/colorPrimary</color>
@@ -23,7 +23,10 @@
 	<color name="hintColor">@color/colorWhite</color>
 
 	<color name="colorBlack">#000000</color>
-	<color name="colorWhite">#f0f0f0</color>
+	<color name="colorWhite">#ffffff</color>
+	<color name="colorWhite2">#f0f0f0</color>
 	<color name="colorDark">#454749</color>
-	<color name="colorGray">#686868</color>
+	<color name="colorGray1">#686868</color>
+	<color name="colorGray2">#57585b</color>
+	<color name="colorGrayLight">#efeff4</color>
 </resources>

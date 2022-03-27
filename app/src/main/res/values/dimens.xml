@@ -12,6 +12,7 @@
     <dimen name="cornerCardView">8dp</dimen>
     <dimen name="cornerButton">5dp</dimen>
 
+    <dimen name="layoutIconSize">60dp</dimen>
     <dimen name="layoutItemHeight">350dp</dimen>
     <dimen name="layoutItemHeaderSize">60dp</dimen>
     <dimen name="dialogWidthSize">350dp</dimen>
