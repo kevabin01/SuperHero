@@ -27,8 +27,8 @@ class MainRepository private constructor(@NonNull context: Context): LoginReposi
     val navConfiguration: AppBarConfiguration = AppBarConfiguration.Builder(
         R.id.navigationLogin,
         R.id.navigationRegister,
-        R.id.navigationHome,
-        R.id.navigationSearch
+        R.id.navigationSearch,
+        R.id.navigationHistory
     ).build()
 
     @NonNull

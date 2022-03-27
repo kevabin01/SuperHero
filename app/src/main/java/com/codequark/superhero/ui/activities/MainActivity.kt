@@ -142,12 +142,12 @@ class MainActivity: AppCompatActivity() {
                 disableMenu(menu)
             }
 
-            R.id.navigationHome -> {
-                disableMenu(menu)
-            }
-
             R.id.navigationSearch -> {
                 enableMenu(menu)
+            }
+
+            R.id.navigationHistory -> {
+                disableMenu(menu)
             }
 
             else -> {
@@ -171,7 +171,7 @@ class MainActivity: AppCompatActivity() {
     override fun onBackPressed() {
         val navDestination = navController.currentDestination
 
-        if(navDestination != null && (navDestination.id == R.id.navigationHome || navDestination.id == R.id.navigationLogin)) {
+        if(navDestination != null && (navDestination.id == R.id.navigationLogin || navDestination.id == R.id.navigationHistory)) {
             finish()
         } else {
             super.onBackPressed()
@@ -195,7 +195,7 @@ class MainActivity: AppCompatActivity() {
     private fun manageDestination(@NonNull destination: NavDestination) {
         invalidateOptionsMenu()
 
-        if(destination.id == R.id.navigationLogin || destination.id == R.id.navigationRegister || destination.id == R.id.navigationHome) {
+        if(destination.id == R.id.navigationLogin || destination.id == R.id.navigationRegister || destination.id == R.id.navigationHistory) {
             binding.fab.visibility = View.GONE
         } else {
             binding.fab.visibility = View.VISIBLE

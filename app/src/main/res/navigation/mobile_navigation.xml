@@ -23,10 +23,10 @@
 		tools:layout="@layout/fragment_register" />
 
 	<fragment
-		android:id="@+id/navigationHome"
-		android:name="com.codequark.superhero.ui.fragments.HomeFragment"
-		android:label="@string/titleHome"
-		tools:layout="@layout/fragment_home" />
+		android:id="@+id/navigationHistory"
+		android:name="com.codequark.superhero.ui.fragments.HistoryFragment"
+		android:label="@string/titleHistory"
+		tools:layout="@layout/fragment_history" />
 
 	<fragment
 		android:id="@+id/navigationSearch"

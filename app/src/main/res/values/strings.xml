@@ -4,8 +4,8 @@
 
 	<string name="titleLogin">Iniciar sesión</string>
 	<string name="titleRegister">Registro</string>
-	<string name="titleHome">Inicio</string>
 	<string name="titleSearch">Buscar</string>
+	<string name="titleHistory">Historial</string>
 	<string name="titleEmail">Correo electrónico</string>
 	<string name="titlePassword">Contraseña</string>
 	<string name="titleRegistrarse">Registrarse</string>

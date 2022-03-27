@@ -44,7 +44,7 @@ class LoginFragment: Fragment() {
                 LoginStateDef.STATE_LOGIN_SUCCESS -> {
                     viewModel.setUpdating(false)
 
-                    viewModel.setDestination(R.id.navigationHome)
+                    viewModel.setDestination(R.id.navigationSearch)
                 }
 
                 LoginStateDef.STATE_LOGIN_ERROR -> {
